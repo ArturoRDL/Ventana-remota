@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">HttpPost</string>
+    <string name="TextGra">Grados</string>
+    <string name="BotonIzq">Atras</string>
+    <string name="BotonDere">Adelantar</string>
+    <string name="Menos">-</string>
+    <string name="Mas">+</string>
+    <string name="Grados">0°</string>
+</resources>
