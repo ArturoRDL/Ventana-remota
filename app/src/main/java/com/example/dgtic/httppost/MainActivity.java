@@ -1,41 +1,40 @@
 package com.example.dgtic.httppost;
 
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 
-public class MainActivity extends AppCompatActivity {
-    int grados;
-    int contador;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    int Grado = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final TextView TextoGrado = (TextView) findViewById(R.id.TextGra);
-        final Button BotonIzq = (Button) findViewById(R.id.BotonIzq);
-        final Button BotonDer = (Button) findViewById(R.id.BotonDer);
 
+        findViewById(R.id.BotonDer).setOnClickListener(this);
+        findViewById(R.id.BotonIzq).setOnClickListener(this);
 
-        BotonIzq.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                BotonIzq.isClickable();
-                TextoGrado.setText((grados--) + "°");
+    }
+
+    public void onClick(View v) {
+        TextView TextoGrado = (TextView) findViewById(R.id.TextGra);
+        View contenedor = v.getRootView();
+        if ((Grado >= 0) && (Grado <= 10)) {
+            switch (v.getId()) {
+                case R.id.BotonDer:
+                    Grado = Grado + 1;
+                    TextoGrado.setText(Grado + "°");
+                    break;
+                case R.id.BotonIzq:
+                    Grado = Grado - 1;
+                    TextoGrado.setText(Grado + "°");
+
             }
-
-        });
-
-
-        BotonDer.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                BotonDer.isClickable();
-                TextoGrado.setText((grados++) + "°");
-            }
-        });
-
+        }
 
     }
 
